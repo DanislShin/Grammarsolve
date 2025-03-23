@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Be Verb Quiz - LV1</title>
+    <link rel="stylesheet" href="quiz-styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .question {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .question p {
+        margin-bottom: 15px;
+      }
+      .options {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .option {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .explanation {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 4px;
+        display: none;
+      }
+      .correct {
+        color: green;
+      }
+      .incorrect {
+        color: red;
+      }
+      #submitBtn {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      #submitBtn:hover {
+        background-color: #0056b3;
+      }
+      #result {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #e9ecef;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      #homeBtn {
+        background-color: #6c757d;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+      #homeBtn:hover {
+        background-color: #5a6268;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Be Verb Quiz - LV1</h1>
+    <form id="quizForm">
+      <div class="question" data-id="q1">
+        <p>The book ___ on the table.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q1" value="is" id="q1_is" />
+            <label for="q1_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q1" value="are" id="q1_are" />
+            <label for="q1_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-id="q2">
+        <p>My parents ___ at home.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q2" value="is" id="q2_is" />
+            <label for="q2_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q2" value="are" id="q2_are" />
+            <label for="q2_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-id="q3">
+        <p>Her ideas ___ interesting.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q3" value="is" id="q3_is" />
+            <label for="q3_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q3" value="are" id="q3_are" />
+            <label for="q3_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-id="q4">
+        <p>The weather ___ nice today.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q4" value="is" id="q4_is" />
+            <label for="q4_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q4" value="are" id="q4_are" />
+            <label for="q4_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-id="q5">
+        <p>This problem ___ difficult.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q5" value="is" id="q5_is" />
+            <label for="q5_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q5" value="are" id="q5_are" />
+            <label for="q5_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-id="q6">
+        <p>The students ___ in the classroom.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q6" value="is" id="q6_is" />
+            <label for="q6_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q6" value="are" id="q6_are" />
+            <label for="q6_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-id="q7">
+        <p>My car ___ in the garage.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q7" value="is" id="q7_is" />
+            <label for="q7_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q7" value="are" id="q7_are" />
+            <label for="q7_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-id="q8">
+        <p>My sister ___ a doctor.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q8" value="is" id="q8_is" />
+            <label for="q8_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q8" value="are" id="q8_are" />
+            <label for="q8_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-id="q9">
+        <p>My best friend ___ coming to visit.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q9" value="is" id="q9_is" />
+            <label for="q9_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q9" value="are" id="q9_are" />
+            <label for="q9_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-id="q10">
+        <p>Our dog ___ very friendly.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q10" value="is" id="q10_is" />
+            <label for="q10_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q10" value="are" id="q10_are" />
+            <label for="q10_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-id="q11">
+        <p>My uncle ___ a teacher.</p>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="q11" value="is" id="q11_is" />
+            <label for="q11_is">is</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="q11" value="are" id="q11_are" />
+            <label for="q11_are">are</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" id="submitBtn" onclick="checkAnswers()">
+        Submit Answers
+      </button>
+    </form>
+    <div id="result"></div>
+    <!-- "홈으로 돌아가기" 버튼 추가 -->
+    <a href="index.html"><button id="homeBtn">홈으로 돌아가기</button></a>
+
+    <script>
+      const answers = {
+        q1: {
+          correct: "is",
+          explanation: "The book is singular, so we use is",
+        },
+        q2: {
+          correct: "are",
+          explanation: "My parents is plural, so we use are",
+        },
+        q3: {
+          correct: "are",
+          explanation: "Her ideas is plural, so we use are",
+        },
+        q4: {
+          correct: "is",
+          explanation: "The weather is singular, so we use is",
+        },
+        q5: {
+          correct: "is",
+          explanation: "This problem is singular, so we use is",
+        },
+        q6: {
+          correct: "are",
+          explanation: "The students is plural, so we use are",
+        },
+        q7: {
+          correct: "is",
+          explanation: "My car is singular, so we use is",
+        },
+        q8: {
+          correct: "is",
+          explanation: "My sister is singular, so we use is",
+        },
+        q9: {
+          correct: "is",
+          explanation: "My best friend is singular, so we use is",
+        },
+        q10: {
+          correct: "is",
+          explanation: "Our dog is singular, so we use is",
+        },
+        q11: {
+          correct: "is",
+          explanation: "My uncle is singular, so we use is",
+        },
+      };
+
+      // Add message handler for parent window communication
+      window.addEventListener("message", function (event) {
+        if (event.data.type === "get-results") {
+          const results = checkAnswers(true);
+          window.parent.postMessage(
+            {
+              type: "quiz-results",
+              score: results.score,
+              incorrectAnswers: results.incorrectAnswers,
+            },
+            "*"
+          );
+        }
+      });
+
+      function checkAnswers(silent = false) {
+        let score = 0;
+        let incorrectAnswers = [];
+
+        for (const [questionId, answer] of Object.entries(answers)) {
+          const selectedAnswer = document.querySelector(
+            `input[name="${questionId}"]:checked`
+          )?.value;
+
+          if (selectedAnswer === answer.correct) {
+            score++;
+          } else {
+            incorrectAnswers.push(questionId);
+          }
+
+          if (!silent) {
+            const explanation = document.createElement("div");
+            explanation.className = "explanation";
+            explanation.textContent = answer.explanation;
+            explanation.style.color =
+              selectedAnswer === answer.correct ? "green" : "red";
+            document
+              .querySelector(`[data-id="${questionId}"]`)
+              .appendChild(explanation);
+            explanation.style.display = "block";
+          }
+        }
+
+        const finalScore = Math.round(
+          (score / Object.keys(answers).length) * 100
+        );
+
+        if (!silent) {
+          const resultDiv = document.getElementById("result");
+          resultDiv.textContent = `Your score: ${finalScore}%`;
+          resultDiv.style.display = "block";
+        }
+
+        return {
+          score: finalScore,
+          incorrectAnswers: incorrectAnswers.map(
+            (id) => `Question ${id.slice(1)}`
+          ),
+        };
+      }
+    </script>
+  </body>
+</html>

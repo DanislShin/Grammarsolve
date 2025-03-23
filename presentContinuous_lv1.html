@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Present Progressive Quiz - LV1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 800px;
+        min-width: 280px;
+        text-align: left;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+      }
+
+      .question {
+        margin: 20px 0;
+        font-size: 1em;
+      }
+
+      .options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .option-group {
+        flex: 1;
+        min-width: 120px;
+      }
+
+      label {
+        display: block;
+        margin: 10px 0;
+        cursor: pointer;
+        font-size: 0.95em;
+        word-wrap: break-word;
+      }
+
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #homeBtn {
+        background-color: #6c757d;
+      }
+
+      #homeBtn:hover {
+        background-color: #5a6268;
+      }
+
+      .results {
+        margin-top: 20px;
+        font-size: 0.95em;
+        color: #333;
+        word-wrap: break-word;
+      }
+
+      .correct {
+        color: green;
+      }
+
+      .incorrect {
+        color: red;
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 15px;
+        }
+        h1 {
+          font-size: 1.2em;
+        }
+        .question {
+          margin: 15px 0;
+        }
+        label {
+          font-size: 0.9em;
+        }
+        button {
+          padding: 10px;
+          font-size: 0.9em;
+        }
+        .options {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      @media (min-width: 801px) {
+        h1 {
+          font-size: 1.8em;
+        }
+        .question {
+          font-size: 1.1em;
+        }
+        label {
+          font-size: 1em;
+        }
+        button {
+          font-size: 1.1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Present Progressive Quiz - LV1</h1>
+      <form id="quizForm">
+        <div class="question">
+          <p>1. I ___ ___ dinner right now.</p>
+          <div class="options">
+            <div class="option-group">
+              <p>Be verb:</p>
+              <label><input type="radio" name="q1_be" value="am" /> am</label>
+              <label><input type="radio" name="q1_be" value="is" /> is</label>
+              <label><input type="radio" name="q1_be" value="are" /> are</label>
+            </div>
+            <div class="option-group">
+              <p>Verb:</p>
+              <label
+                ><input type="radio" name="q1_verb" value="cooking" />
+                cooking</label
+              >
+              <label
+                ><input type="radio" name="q1_verb" value="cook" /> cook</label
+              >
+              <label
+                ><input type="radio" name="q1_verb" value="cooks" />
+                cooks</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <p>2. She ___ ___ at the party now.</p>
+          <div class="options">
+            <div class="option-group">
+              <p>Be verb:</p>
+              <label><input type="radio" name="q2_be" value="am" /> am</label>
+              <label><input type="radio" name="q2_be" value="is" /> is</label>
+              <label><input type="radio" name="q2_be" value="are" /> are</label>
+            </div>
+            <div class="option-group">
+              <p>Verb:</p>
+              <label
+                ><input type="radio" name="q2_verb" value="dancing" />
+                dancing</label
+              >
+              <label
+                ><input type="radio" name="q2_verb" value="dance" />
+                dance</label
+              >
+              <label
+                ><input type="radio" name="q2_verb" value="dances" />
+                dances</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <p>3. They ___ ___ soccer this afternoon.</p>
+          <div class="options">
+            <div class="option-group">
+              <p>Be verb:</p>
+              <label><input type="radio" name="q3_be" value="am" /> am</label>
+              <label><input type="radio" name="q3_be" value="is" /> is</label>
+              <label><input type="radio" name="q3_be" value="are" /> are</label>
+            </div>
+            <div class="option-group">
+              <p>Verb:</p>
+              <label
+                ><input type="radio" name="q3_verb" value="playing" />
+                playing</label
+              >
+              <label
+                ><input type="radio" name="q3_verb" value="play" /> play</label
+              >
+              <label
+                ><input type="radio" name="q3_verb" value="plays" />
+                plays</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <p>4. He ___ ___ TV at the moment.</p>
+          <div class="options">
+            <div class="option-group">
+              <p>Be verb:</p>
+              <label><input type="radio" name="q4_be" value="am" /> am</label>
+              <label><input type="radio" name="q4_be" value="is" /> is</label>
+              <label><input type="radio" name="q4_be" value="are" /> are</label>
+            </div>
+            <div class="option-group">
+              <p>Verb:</p>
+              <label
+                ><input type="radio" name="q4_verb" value="watching" />
+                watching</label
+              >
+              <label
+                ><input type="radio" name="q4_verb" value="watch" />
+                watch</label
+              >
+              <label
+                ><input type="radio" name="q4_verb" value="watches" />
+                watches</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="question">
+          <p>5. We ___ ___ English now.</p>
+          <div class="options">
+            <div class="option-group">
+              <p>Be verb:</p>
+              <label><input type="radio" name="q5_be" value="am" /> am</label>
+              <label><input type="radio" name="q5_be" value="is" /> is</label>
+              <label><input type="radio" name="q5_be" value="are" /> are</label>
+            </div>
+            <div class="option-group">
+              <p>Verb:</p>
+              <label
+                ><input type="radio" name="q5_verb" value="studying" />
+                studying</label
+              >
+              <label
+                ><input type="radio" name="q5_verb" value="study" />
+                study</label
+              >
+              <label
+                ><input type="radio" name="q5_verb" value="studies" />
+                studies</label
+              >
+            </div>
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="results" class="results"></div>
+      <!-- "홈으로 돌아가기" 버튼 추가 -->
+      <a href="index.html"><button id="homeBtn">Home</button></a>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("quizForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            // Correct answers
+            const answers = {
+              q1: { be: "am", verb: "cooking" },
+              q2: { be: "is", verb: "dancing" },
+              q3: { be: "are", verb: "playing" },
+              q4: { be: "is", verb: "watching" },
+              q5: { be: "are", verb: "studying" },
+            };
+
+            // Correct full sentences for feedback
+            const correctSentences = {
+              q1: "I am cooking dinner right now.",
+              q2: "She is dancing at the party now.",
+              q3: "They are playing soccer this afternoon.",
+              q4: "He is watching TV at the moment.",
+              q5: "We are studying English now.",
+            };
+
+            // Get user selections
+            const userAnswers = {
+              q1: {
+                be:
+                  document.querySelector('input[name="q1_be"]:checked')
+                    ?.value || "",
+                verb:
+                  document.querySelector('input[name="q1_verb"]:checked')
+                    ?.value || "",
+              },
+              q2: {
+                be:
+                  document.querySelector('input[name="q2_be"]:checked')
+                    ?.value || "",
+                verb:
+                  document.querySelector('input[name="q2_verb"]:checked')
+                    ?.value || "",
+              },
+              q3: {
+                be:
+                  document.querySelector('input[name="q3_be"]:checked')
+                    ?.value || "",
+                verb:
+                  document.querySelector('input[name="q3_verb"]:checked')
+                    ?.value || "",
+              },
+              q4: {
+                be:
+                  document.querySelector('input[name="q4_be"]:checked')
+                    ?.value || "",
+                verb:
+                  document.querySelector('input[name="q4_verb"]:checked')
+                    ?.value || "",
+              },
+              q5: {
+                be:
+                  document.querySelector('input[name="q5_be"]:checked')
+                    ?.value || "",
+                verb:
+                  document.querySelector('input[name="q5_verb"]:checked')
+                    ?.value || "",
+              },
+            };
+
+            // Evaluate answers and calculate score
+            let score = 0;
+            let resultHTML = "<h3>Results:</h3><ul>";
+
+            for (let i = 1; i <= 5; i++) {
+              const questionId = `q${i}`;
+              const userBe = userAnswers[questionId].be;
+              const userVerb = userAnswers[questionId].verb;
+              const correctBe = answers[questionId].be;
+              const correctVerb = answers[questionId].verb;
+              const correctSentence = correctSentences[questionId];
+
+              if (userBe === correctBe && userVerb === correctVerb) {
+                resultHTML += `<li class="correct">Question ${i}: Correct! "${correctSentence}"</li>`;
+                score++;
+              } else {
+                const userResponse =
+                  userBe && userVerb
+                    ? `${userBe} ${userVerb}`
+                    : "No answer selected";
+                resultHTML += `<li class="incorrect">Question ${i}: Incorrect. You chose: "${userResponse}". Correct answer: "${correctBe} ${correctVerb}" (${correctSentence})</li>`;
+              }
+            }
+
+            resultHTML += `</ul><p>Your score: ${score} out of 5 (${
+              (score / 5) * 100
+            }%)</p>`;
+            document.getElementById("results").innerHTML = resultHTML;
+          });
+      });
+    </script>
+  </body>
+</html>

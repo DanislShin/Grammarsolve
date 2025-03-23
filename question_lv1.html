@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fill-in-the-Blank Quiz - Question Words LV1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 500px;
+        text-align: left;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      p {
+        margin: 15px 0;
+        font-size: 16px;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        font-size: 14px;
+        width: 100px;
+        margin: 0 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #homeBtn {
+        background-color: #6c757d;
+      }
+
+      #homeBtn:hover {
+        background-color: #5a6268;
+      }
+
+      .results {
+        margin-top: 20px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .correct {
+        color: green;
+      }
+
+      .incorrect {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Fill-in-the-Blank Quiz - Question Words LV1</h1>
+      <form id="quizForm">
+        <p>
+          1. <input type="text" id="q1" placeholder="Your answer" /> are you
+          meeting at the office today?
+        </p>
+        <p>
+          2. <input type="text" id="q2" placeholder="Your answer" /> does the
+          movie start tonight?
+        </p>
+        <p>
+          3. <input type="text" id="q3" placeholder="Your answer" /> did you
+          leave your keys this morning?
+        </p>
+        <p>
+          4. <input type="text" id="q4" placeholder="Your answer" /> is knocking
+          at the door so late?
+        </p>
+        <p>
+          5. <input type="text" id="q5" placeholder="Your answer" /> can I find
+          the schedule for the event?
+        </p>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="results" class="results"></div>
+      <!-- "홈으로 돌아가기" 버튼 추가 -->
+      <a href="index.html"><button id="homeBtn">Home</button></a>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("quizForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            // Correct answers
+            const answers = {
+              q1: "Who",
+              q2: "When",
+              q3: "Where",
+              q4: "Who",
+              q5: "Where",
+            };
+
+            // Get user inputs
+            const userAnswers = {
+              q1: document.getElementById("q1").value.trim(),
+              q2: document.getElementById("q2").value.trim(),
+              q3: document.getElementById("q3").value.trim(),
+              q4: document.getElementById("q4").value.trim(),
+              q5: document.getElementById("q5").value.trim(),
+            };
+
+            // Evaluate answers and calculate score
+            let score = 0;
+            let resultHTML = "<h3>Results:</h3><ul>";
+
+            for (let i = 1; i <= 5; i++) {
+              const questionId = `q${i}`;
+              const userAnswer = userAnswers[questionId];
+              const correctAnswer = answers[questionId];
+
+              if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                resultHTML += `<li class="correct">Question ${i}: "${userAnswer}" is correct!</li>`;
+                score++;
+              } else {
+                resultHTML += `<li class="incorrect">Question ${i}: "${userAnswer}" is incorrect. Correct answer: "${correctAnswer}"</li>`;
+              }
+            }
+
+            resultHTML += `</ul><p>Your score: ${score} out of 5 (${
+              (score / 5) * 100
+            }%)</p>`;
+            document.getElementById("results").innerHTML = resultHTML;
+          });
+      });
+    </script>
+  </body>
+</html>

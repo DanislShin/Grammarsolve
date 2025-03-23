@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Present Progressive Fill-in Quiz (20 Questions with Korean)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 900px;
+        min-width: 280px;
+        text-align: left;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+      }
+
+      .question {
+        margin: 20px 0;
+        font-size: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .english {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .korean {
+        font-size: 0.9em;
+        color: #666;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        font-size: 0.95em;
+        width: 80px;
+        margin: 0 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .results {
+        margin-top: 20px;
+        font-size: 0.95em;
+        color: #333;
+        word-wrap: break-word;
+      }
+
+      .correct {
+        color: green;
+      }
+
+      .incorrect {
+        color: red;
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 15px;
+        }
+        h1 {
+          font-size: 1.2em;
+        }
+        .question {
+          margin: 15px 0;
+        }
+        .english,
+        .korean {
+          font-size: 0.85em;
+        }
+        input[type="text"] {
+          width: 60px;
+          font-size: 0.9em;
+        }
+        button {
+          padding: 10px;
+          font-size: 0.9em;
+        }
+      }
+
+      @media (min-width: 901px) {
+        h1 {
+          font-size: 1.8em;
+        }
+        .question {
+          font-size: 1.1em;
+        }
+        .korean {
+          font-size: 1em;
+        }
+        input[type="text"] {
+          width: 100px;
+          font-size: 1em;
+        }
+        button {
+          font-size: 1.1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Present Progressive Fill-in Quiz (20 Questions with Korean)</h1>
+      <form id="quizForm">
+        <div class="question">
+          <div class="english">
+            <span>1. I</span>
+            <input type="text" name="q1_be" placeholder="be" />
+            <input type="text" name="q1_verb" placeholder="verb" /> dinner right
+            now.
+          </div>
+          <div class="korean">나는 지금 저녁을 요리하고 있다. (cook)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>2. She</span>
+            <input type="text" name="q2_be" placeholder="be" />
+            <input type="text" name="q2_verb" placeholder="verb" /> at the party
+            now.
+          </div>
+          <div class="korean">그녀는 지금 파티에서 춤을 추고 있다. (dance)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>3. They</span>
+            <input type="text" name="q3_be" placeholder="be" />
+            <input type="text" name="q3_verb" placeholder="verb" /> soccer this
+            afternoon.
+          </div>
+          <div class="korean">그들은 오늘 오후에 축구를 할 것이다. (play)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>4. He</span>
+            <input type="text" name="q4_be" placeholder="be" />
+            <input type="text" name="q4_verb" placeholder="verb" /> TV at the
+            moment.
+          </div>
+          <div class="korean">그는 지금 TV를 보고 있다. (watch)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>5. We</span>
+            <input type="text" name="q5_be" placeholder="be" />
+            <input type="text" name="q5_verb" placeholder="verb" /> English now.
+          </div>
+          <div class="korean">우리는 지금 영어를 공부하고 있다. (study)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>6. You</span>
+            <input type="text" name="q6_be" placeholder="be" />
+            <input type="text" name="q6_verb" placeholder="verb" /> a book
+            today.
+          </div>
+          <div class="korean">너는 오늘 책을 읽을 것이다. (read)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>7. The dog</span>
+            <input type="text" name="q7_be" placeholder="be" />
+            <input type="text" name="q7_verb" placeholder="verb" /> in the yard
+            now.
+          </div>
+          <div class="korean">개는 지금 마당에서 뛰고 있다. (run)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>8. The kids</span>
+            <input type="text" name="q8_be" placeholder="be" />
+            <input type="text" name="q8_verb" placeholder="verb" /> outside this
+            morning.
+          </div>
+          <div class="korean">아이들은 오늘 아침 밖에서 놀고 있다. (play)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>9. It</span>
+            <input type="text" name="q9_be" placeholder="be" />
+            <input type="text" name="q9_verb" placeholder="verb" /> outside now.
+          </div>
+          <div class="korean">지금 밖에 비가 오고 있다. (rain)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>10. We</span>
+            <input type="text" name="q10_be" placeholder="be" />
+            <input type="text" name="q10_verb" placeholder="verb" /> to music at
+            the moment.
+          </div>
+          <div class="korean">우리는 지금 음악을 듣고 있다. (listen)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>11. He</span>
+            <input type="text" name="q11_be" placeholder="be" />
+            <input type="text" name="q11_verb" placeholder="verb" /> a picture
+            now.
+          </div>
+          <div class="korean">그는 지금 그림을 그리고 있다. (draw)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>12. I</span>
+            <input type="text" name="q12_be" placeholder="be" />
+            <input type="text" name="q12_verb" placeholder="verb" /> my homework
+            this evening.
+          </div>
+          <div class="korean">나는 오늘 저녁 숙제를 할 것이다. (do)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>13. They</span>
+            <input type="text" name="q13_be" placeholder="be" />
+            <input type="text" name="q13_verb" placeholder="verb" /> in the pool
+            now.
+          </div>
+          <div class="korean">그들은 지금 수영장에서 수영하고 있다. (swim)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>14. She</span>
+            <input type="text" name="q14_be" placeholder="be" />
+            <input type="text" name="q14_verb" placeholder="verb" /> a letter at
+            the moment.
+          </div>
+          <div class="korean">그녀는 지금 편지를 쓰고 있다. (write)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>15. You</span>
+            <input type="text" name="q15_be" placeholder="be" />
+            <input type="text" name="q15_verb" placeholder="verb" /> to the
+            store now.
+          </div>
+          <div class="korean">너는 지금 가게에 가고 있다. (go)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>16. The cat</span>
+            <input type="text" name="q16_be" placeholder="be" />
+            <input type="text" name="q16_verb" placeholder="verb" /> on the
+            couch now.
+          </div>
+          <div class="korean">고양이는 지금 소파에서 자고 있다. (sleep)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>17. We</span>
+            <input type="text" name="q17_be" placeholder="be" />
+            <input type="text" name="q17_verb" placeholder="verb" /> a movie
+            tonight.
+          </div>
+          <div class="korean">우리는 오늘 밤 영화를 볼 것이다. (watch)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>18. He</span>
+            <input type="text" name="q18_be" placeholder="be" />
+            <input type="text" name="q18_verb" placeholder="verb" /> his bike
+            now.
+          </div>
+          <div class="korean">그는 지금 자전거를 타고 있다. (ride)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>19. They</span>
+            <input type="text" name="q19_be" placeholder="be" />
+            <input type="text" name="q19_verb" placeholder="verb" /> the room
+            this afternoon.
+          </div>
+          <div class="korean">그들은 오늘 오후 방을 청소할 것이다. (clean)</div>
+        </div>
+        <div class="question">
+          <div class="english">
+            <span>20. I</span>
+            <input type="text" name="q20_be" placeholder="be" />
+            <input type="text" name="q20_verb" placeholder="verb" /> a song now.
+          </div>
+          <div class="korean">나는 지금 노래를 부르고 있다. (sing)</div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="results" class="results"></div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("quizForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            // Correct answers
+            const answers = {
+              q1: { be: "am", verb: "cooking" },
+              q2: { be: "is", verb: "dancing" },
+              q3: { be: "are", verb: "playing" },
+              q4: { be: "is", verb: "watching" },
+              q5: { be: "are", verb: "studying" },
+              q6: { be: "are", verb: "reading" },
+              q7: { be: "is", verb: "running" },
+              q8: { be: "are", verb: "playing" },
+              q9: { be: "is", verb: "raining" },
+              q10: { be: "are", verb: "listening" },
+              q11: { be: "is", verb: "drawing" },
+              q12: { be: "am", verb: "doing" },
+              q13: { be: "are", verb: "swimming" },
+              q14: { be: "is", verb: "writing" },
+              q15: { be: "are", verb: "going" },
+              q16: { be: "is", verb: "sleeping" },
+              q17: { be: "are", verb: "watching" },
+              q18: { be: "is", verb: "riding" },
+              q19: { be: "are", verb: "cleaning" },
+              q20: { be: "am", verb: "singing" },
+            };
+
+            // Correct full sentences for feedback (English and Korean)
+            const correctSentences = {
+              q1: {
+                en: "I am cooking dinner right now.",
+                ko: "나는 지금 저녁을 요리하고 있다.",
+              },
+              q2: {
+                en: "She is dancing at the party now.",
+                ko: "그녀는 지금 파티에서 춤을 추고 있다.",
+              },
+              q3: {
+                en: "They are playing soccer this afternoon.",
+                ko: "그들은 오늘 오후에 축구를 할 것이다.",
+              },
+              q4: {
+                en: "He is watching TV at the moment.",
+                ko: "그는 지금 TV를 보고 있다.",
+              },
+              q5: {
+                en: "We are studying English now.",
+                ko: "우리는 지금 영어를 공부하고 있다.",
+              },
+              q6: {
+                en: "You are reading a book today.",
+                ko: "너는 오늘 책을 읽을 것이다.",
+              },
+              q7: {
+                en: "The dog is running in the yard now.",
+                ko: "개는 지금 마당에서 뛰고 있다.",
+              },
+              q8: {
+                en: "The kids are playing outside this morning.",
+                ko: "아이들은 오늘 아침 밖에서 놀고 있다.",
+              },
+              q9: {
+                en: "It is raining outside now.",
+                ko: "지금 밖에 비가 오고 있다.",
+              },
+              q10: {
+                en: "We are listening to music at the moment.",
+                ko: "우리는 지금 음악을 듣고 있다.",
+              },
+              q11: {
+                en: "He is drawing a picture now.",
+                ko: "그는 지금 그림을 그리고 있다.",
+              },
+              q12: {
+                en: "I am doing my homework this evening.",
+                ko: "나는 오늘 저녁 숙제를 할 것이다.",
+              },
+              q13: {
+                en: "They are swimming in the pool now.",
+                ko: "그들은 지금 수영장에서 수영하고 있다.",
+              },
+              q14: {
+                en: "She is writing a letter at the moment.",
+                ko: "그녀는 지금 편지를 쓰고 있다.",
+              },
+              q15: {
+                en: "You are going to the store now.",
+                ko: "너는 지금 가게에 가고 있다.",
+              },
+              q16: {
+                en: "The cat is sleeping on the couch now.",
+                ko: "고양이는 지금 소파에서 자고 있다.",
+              },
+              q17: {
+                en: "We are watching a movie tonight.",
+                ko: "우리는 오늘 밤 영화를 볼 것이다.",
+              },
+              q18: {
+                en: "He is riding his bike now.",
+                ko: "그는 지금 자전거를 타고 있다.",
+              },
+              q19: {
+                en: "They are cleaning the room this afternoon.",
+                ko: "그들은 오늘 오후 방을 청소할 것이다.",
+              },
+              q20: {
+                en: "I am singing a song now.",
+                ko: "나는 지금 노래를 부르고 있다.",
+              },
+            };
+
+            // Get user inputs
+            const userAnswers = {};
+            for (let i = 1; i <= 20; i++) {
+              userAnswers[`q${i}`] = {
+                be: document
+                  .querySelector(`input[name="q${i}_be"]`)
+                  .value.trim()
+                  .toLowerCase(),
+                verb: document
+                  .querySelector(`input[name="q${i}_verb"]`)
+                  .value.trim()
+                  .toLowerCase(),
+              };
+            }
+
+            // Evaluate answers and calculate score
+            let score = 0;
+            let resultHTML = "<h3>Results:</h3><ul>";
+
+            for (let i = 1; i <= 20; i++) {
+              const questionId = `q${i}`;
+              const userBe = userAnswers[questionId].be;
+              const userVerb = userAnswers[questionId].verb;
+              const correctBe = answers[questionId].be;
+              const correctVerb = answers[questionId].verb;
+              const correctEn = correctSentences[questionId].en;
+              const correctKo = correctSentences[questionId].ko;
+
+              if (userBe === correctBe && userVerb === correctVerb) {
+                resultHTML += `<li class="correct">Question ${i}: Correct! "${correctEn}" (${correctKo})</li>`;
+                score++;
+              } else {
+                const userResponse =
+                  userBe && userVerb
+                    ? `${userBe} ${userVerb}`
+                    : "No answer provided";
+                resultHTML += `<li class="incorrect">Question ${i}: Incorrect. You wrote: "${userResponse}". Correct answer: "${correctBe} ${correctVerb}" (${correctEn} / ${correctKo})</li>`;
+              }
+            }
+
+            resultHTML += `</ul><p>Your score: ${score} out of 20 (${
+              (score / 20) * 100
+            }%)</p>`;
+            document.getElementById("results").innerHTML = resultHTML;
+          });
+      });
+    </script>
+  </body>
+</html>

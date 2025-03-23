@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문장 유형 바꾸기 문제 - LV4</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f4f4f9;
+      }
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 600px;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .question {
+        margin-bottom: 20px;
+        font-size: 18px;
+        display: flex; /* 질문과 입력 필드를 유연하게 배치 */
+        flex-wrap: wrap; /* 작은 화면에서 줄 바꿈 허용 */
+        align-items: center;
+        gap: 10px; /* 텍스트와 입력 필드 사이 간격 */
+      }
+      input {
+        padding: 5px 10px;
+        font-size: 16px;
+        width: 100%; /* 유연한 너비 */
+        max-width: 300px; /* 최대 너비 제한 */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 20px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #homeBtn {
+        background-color: #6c757d;
+      }
+      #homeBtn:hover {
+        background-color: #5a6268;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: left;
+      }
+      .correct {
+        color: green;
+      }
+      .incorrect {
+        color: red;
+      }
+      /* 모바일 화면에 맞춘 조정 */
+      @media (max-width: 400px) {
+        .question {
+          font-size: 16px;
+        }
+        input,
+        button {
+          font-size: 14px;
+        }
+        input {
+          max-width: 100%; /* 작은 화면에서 너무 길어지지 않도록 */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>문장 유형 바꾸기 문제 - LV4</h1>
+      <div id="quiz-container">
+        <div class="question">
+          1. "The book is interesting."을 부정문으로 바꾸세요:
+          <input type="text" id="q1" />
+        </div>
+        <div class="question">
+          2. "My parents are supportive."을 의문문으로 바꾸세요:
+          <input type="text" id="q2" />
+        </div>
+        <div class="question">
+          3. "Her ideas are innovative."을 의문 부정문으로 바꾸세요:
+          <input type="text" id="q3" />
+        </div>
+        <div class="question">
+          4. "The weather is nice today."을 부정문으로 바꾸세요:
+          <input type="text" id="q4" />
+        </div>
+        <div class="question">
+          5. "This problem is difficult."을 의문문으로 바꾸세요:
+          <input type="text" id="q5" />
+        </div>
+        <div class="question">
+          6. "The students are ready."을 부정문으로 바꾸세요:
+          <input type="text" id="q6" />
+        </div>
+        <div class="question">
+          7. "My car is old."을 의문문으로 바꾸세요:
+          <input type="text" id="q7" />
+        </div>
+        <div class="question">
+          8. "My sister is kind."을 의문 부정문으로 바꾸세요:
+          <input type="text" id="q8" />
+        </div>
+        <div class="question">
+          9. "My best friend is funny."을 부정문으로 바꾸세요:
+          <input type="text" id="q9" />
+        </div>
+        <div class="question">
+          10. "Our dog is playful."을 의문문으로 바꾸세요:
+          <input type="text" id="q10" />
+        </div>
+        <div class="question">
+          11. "My uncle is tall."을 의문 부정문으로 바꾸세요:
+          <input type="text" id="q11" />
+        </div>
+        <button onclick="submitQuiz()">제출</button>
+      </div>
+      <div class="result" id="result"></div>
+      <!-- "홈으로 돌아가기" 버튼 추가 -->
+      <a href="index.html"><button id="homeBtn">홈으로 돌아가기</button></a>
+    </div>
+
+    <script>
+      const correctAnswers = {
+        q1: "The book is not interesting.",
+        q2: "Are my parents supportive?",
+        q3: "Are her ideas not innovative?",
+        q4: "The weather is not nice today.",
+        q5: "Is this problem difficult?",
+        q6: "The students are not ready.",
+        q7: "Is my car old?",
+        q8: "Is my sister not kind?",
+        q9: "My best friend is not funny.",
+        q10: "Is our dog playful?",
+        q11: "Is my uncle not tall?",
+      };
+
+      function submitQuiz() {
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+        let resultHTML = "<h3>결과</h3><ul>";
+
+        for (let i = 1; i <= totalQuestions; i++) {
+          const userAnswer = document
+            .getElementById(`q${i}`)
+            .value.trim()
+            .toLowerCase();
+          const correctAnswer = correctAnswers[`q${i}`].toLowerCase();
+          const correctSentence = correctAnswers[`q${i}`];
+
+          if (userAnswer === correctAnswer) {
+            resultHTML += `<li class="correct">문제 ${i}: 정답! "${correctSentence}"</li>`;
+            score++;
+          } else {
+            resultHTML += `<li class="incorrect">문제 ${i}: 오답. 당신의 답: "${
+              userAnswer || "입력 없음"
+            }". 정답: "${correctSentence}"</li>`;
+          }
+        }
+
+        resultHTML += `</ul><p>총 ${totalQuestions} 중 ${score} 점을 획득하셨습니다. (${Math.round(
+          (score / totalQuestions) * 100
+        )}%)</p>`;
+        document.getElementById("result").innerHTML = resultHTML;
+      }
+    </script>
+  </body>
+</html>

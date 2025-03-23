@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>베스티온 어학원 문법 복습</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background: url("https://www.transparenttextures.com/patterns/flowers.png")
+            repeat,
+          #f5f5f5; /* 회색 배경 */
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      h1 {
+        color: #f9a825; /* 노란색 */
+        font-size: 2em;
+        margin-top: 40px;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+      }
+      .main-buttons {
+        padding: 20px;
+      }
+      .main-buttons button {
+        padding: 12px 24px;
+        margin: 8px;
+        font-size: 1.1em;
+        cursor: pointer;
+        background-color: #fff; /* 기본: 흰색 */
+        border: 2px solid #e0e0e0; /* 연한 회색 테두리 */
+        border-radius: 8px;
+        color: #616161; /* 회색 텍스트 */
+        transition: background-color 0.3s, transform 0.2s;
+      }
+      .main-buttons button.active {
+        background-color: #fff9c4; /* 활성: 연한 노란색 */
+        color: #424242; /* 진한 회색 텍스트 */
+        border-color: #fdd835; /* 노란색 테두리 */
+      }
+      .main-buttons button:hover {
+        background-color: #ffeb3b; /* 호버: 더 진한 노란색 */
+        transform: scale(1.05);
+      }
+      .sub-buttons {
+        display: none;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.9); /* 반투명 흰색 */
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .sub-buttons button {
+        padding: 8px 16px;
+        margin: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        background-color: #fff; /* 기본: 흰색 */
+        border: 2px solid #e0e0e0; /* 연한 회색 테두리 */
+        border-radius: 6px;
+        color: #616161; /* 회색 텍스트 */
+        transition: background-color 0.3s, transform 0.2s;
+      }
+      .sub-buttons button.active {
+        background-color: #fff9c4; /* 활성: 연한 노란색 */
+        color: #424242; /* 진한 회색 텍스트 */
+        border-color: #fdd835; /* 노란색 테두리 */
+      }
+      .sub-buttons button:hover {
+        background-color: #ffeb3b; /* 호버: 더 진한 노란색 */
+        transform: scale(1.05);
+      }
+      footer {
+        padding: 20px;
+        font-size: 0.9em;
+        color: #757575; /* 회색 */
+        background-color: rgba(255, 255, 255, 0.8);
+        border-top: 1px solid #e0e0e0; /* 연한 회색 테두리 */
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>베스티온 어학원 문법 복습</h1>
+      <div class="main-buttons">
+        <button onclick="showLevels('be')">Be동사</button>
+        <button onclick="showLevels('presentContinuous')">현재진행형</button>
+        <button onclick="showLevels('pastContinuous')">과거진행형</button>
+        <button onclick="showLevels('present')">현재형</button>
+        <button onclick="showLevels('past')">과거형</button>
+        <button onclick="showLevels('presentPerfect')">현재완료형</button>
+        <button onclick="showLevels('pastPerfect')">과거완료형</button>
+        <button onclick="showLevels('question')">의문사</button>
+      </div>
+
+      <div id="be" class="sub-buttons">
+        <button onclick="goToLevel('be', 1)">LV1</button>
+        <button onclick="goToLevel('be', 2)">LV2</button>
+        <button onclick="goToLevel('be', 3)">LV3</button>
+        <button onclick="goToLevel('be', 4)">LV4</button>
+        <button onclick="goToLevel('be', 5)">LV5</button>
+        <button onclick="goToLevel('be', 6)">LV6</button>
+      </div>
+      <div id="presentContinuous" class="sub-buttons">
+        <button onclick="goToLevel('presentContinuous', 1)">LV1</button>
+        <button onclick="goToLevel('presentContinuous', 2)">LV2</button>
+        <button onclick="goToLevel('presentContinuous', 3)">LV3</button>
+        <button onclick="goToLevel('presentContinuous', 4)">LV4</button>
+        <button onclick="goToLevel('presentContinuous', 5)">LV5</button>
+        <button onclick="goToLevel('presentContinuous', 6)">LV6</button>
+      </div>
+      <div id="pastContinuous" class="sub-buttons">
+        <button onclick="goToLevel('pastContinuous', 1)">LV1</button>
+        <button onclick="goToLevel('pastContinuous', 2)">LV2</button>
+        <button onclick="goToLevel('pastContinuous', 3)">LV3</button>
+        <button onclick="goToLevel('pastContinuous', 4)">LV4</button>
+        <button onclick="goToLevel('pastContinuous', 5)">LV5</button>
+        <button onclick="goToLevel('pastContinuous', 6)">LV6</button>
+      </div>
+      <div id="present" class="sub-buttons">
+        <button onclick="goToLevel('present', 1)">LV1</button>
+        <button onclick="goToLevel('present', 2)">LV2</button>
+        <button onclick="goToLevel('present', 3)">LV3</button>
+        <button onclick="goToLevel('present', 4)">LV4</button>
+        <button onclick="goToLevel('present', 5)">LV5</button>
+        <button onclick="goToLevel('present', 6)">LV6</button>
+      </div>
+      <div id="past" class="sub-buttons">
+        <button onclick="goToLevel('past', 1)">LV1</button>
+        <button onclick="goToLevel('past', 2)">LV2</button>
+        <button onclick="goToLevel('past', 3)">LV3</button>
+        <button onclick="goToLevel('past', 4)">LV4</button>
+        <button onclick="goToLevel('past', 5)">LV5</button>
+        <button onclick="goToLevel('past', 6)">LV6</button>
+      </div>
+      <div id="presentPerfect" class="sub-buttons">
+        <button onclick="goToLevel('presentPerfect', 1)">LV1</button>
+        <button onclick="goToLevel('presentPerfect', 2)">LV2</button>
+        <button onclick="goToLevel('presentPerfect', 3)">LV3</button>
+        <button onclick="goToLevel('presentPerfect', 4)">LV4</button>
+        <button onclick="goToLevel('presentPerfect', 5)">LV5</button>
+        <button onclick="goToLevel('presentPerfect', 6)">LV6</button>
+      </div>
+      <div id="pastPerfect" class="sub-buttons">
+        <button onclick="goToLevel('pastPerfect', 1)">LV1</button>
+        <button onclick="goToLevel('pastPerfect', 2)">LV2</button>
+        <button onclick="goToLevel('pastPerfect', 3)">LV3</button>
+        <button onclick="goToLevel('pastPerfect', 4)">LV4</button>
+        <button onclick="goToLevel('pastPerfect', 5)">LV5</button>
+        <button onclick="goToLevel('pastPerfect', 6)">LV6</button>
+      </div>
+      <div id="question" class="sub-buttons">
+        <button onclick="goToLevel('question', 1)">LV1</button>
+        <button onclick="goToLevel('question', 2)">LV2</button>
+        <button onclick="goToLevel('question', 3)">LV3</button>
+        <button onclick="goToLevel('question', 4)">LV4</button>
+        <button onclick="goToLevel('question', 5)">LV5</button>
+        <button onclick="goToLevel('question', 6)">LV6</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>저작권 베스티온 어학원</p>
+    </footer>
+
+    <script>
+      // 연동된 파일 목록
+      const linkedFiles = {
+        be: ["be_lv1.html", "be_lv2.html", "be_lv3.html", "be_lv4.html"],
+        presentContinuous: [
+          "presentContinuous_lv1.html",
+          "presentContinuous_lv2.html",
+          "presentContinuous_lv3.html",
+          "presentContinuous_lv4.html",
+        ],
+        pastContinuous: [],
+        present: [],
+        past: [],
+        presentPerfect: ["presentPerfect_lv1.html"],
+        pastPerfect: [],
+        question: ["question_lv1.html", "question_lv2.html"],
+      };
+
+      // 페이지 로드 시 버튼 색상 설정
+      document.addEventListener("DOMContentLoaded", function () {
+        // 메인 버튼 색상 설정
+        const mainButtons = document.querySelectorAll(".main-buttons button");
+        mainButtons.forEach((button) => {
+          const section = button.getAttribute("onclick").match(/'([^']+)'/)[1];
+          if (linkedFiles[section] && linkedFiles[section].length > 0) {
+            button.classList.add("active");
+          }
+        });
+
+        // 서브 버튼 색상 설정
+        Object.keys(linkedFiles).forEach((section) => {
+          const buttons = document.querySelectorAll(`#${section} button`);
+          buttons.forEach((button, index) => {
+            const level = index + 1;
+            const fileName = `${section}_lv${level}.html`;
+            if (linkedFiles[section].includes(fileName)) {
+              button.classList.add("active");
+            }
+          });
+        });
+      });
+
+      function showLevels(section) {
+        document.querySelectorAll(".sub-buttons").forEach((div) => {
+          div.style.display = "none";
+        });
+        document.getElementById(section).style.display = "block";
+      }
+
+      function goToLevel(section, level) {
+        window.location.href = `${section}_lv${level}.html`;
+      }
+    </script>
+  </body>
+</html>

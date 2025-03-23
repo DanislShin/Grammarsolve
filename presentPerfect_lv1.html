@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>현재완료 퀴즈 - LV1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+      .options {
+        margin-left: 20px;
+      }
+      .feedback {
+        color: green;
+        font-weight: bold;
+        display: none;
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+        display: none;
+      }
+      #homeBtn {
+        display: block;
+        width: 100%;
+        max-width: 200px; /* 버튼 크기 제한 */
+        margin: 20px auto; /* 중앙 정렬 */
+        padding: 10px;
+        background-color: #6c757d; /* 회색 */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+      }
+      #homeBtn:hover {
+        background-color: #5a6268; /* 호버 시 더 어두운 회색 */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>현재완료 시제 퀴즈 - LV1</h1>
+
+    <div class="question">
+      <p>1. She ___ Japan three times.</p>
+      <div class="options">
+        <input type="radio" name="q1" value="a" /> a) has visited<br />
+        <input type="radio" name="q1" value="b" /> b) have visited<br />
+        <input type="radio" name="q1" value="c" /> c) visited<br />
+        <input type="radio" name="q1" value="d" /> d) is visiting<br />
+      </div>
+      <button onclick="checkAnswer('q1', 'a')">정답 확인</button>
+      <p class="feedback" id="feedback1">정답입니다! (has visited)</p>
+      <p class="error" id="error1">틀렸습니다. 정답은 'has visited'입니다.</p>
+    </div>
+
+    <div class="question">
+      <p>2. Have you ___ finished writing this answer?</p>
+      <div class="options">
+        <input type="radio" name="q2" value="a" /> a) just<br />
+        <input type="radio" name="q2" value="b" /> b) ever<br />
+        <input type="radio" name="q2" value="c" /> c) already<br />
+        <input type="radio" name="q2" value="d" /> d) never<br />
+      </div>
+      <button onclick="checkAnswer('q2', 'b')">정답 확인</button>
+      <p class="feedback" id="feedback2">정답입니다! (ever)</p>
+      <p class="error" id="error2">틀렸습니다. 정답은 'ever'입니다.</p>
+    </div>
+
+    <div class="question">
+      <p>3. We ___ in Seoul for five years.</p>
+      <div class="options">
+        <input type="radio" name="q3" value="a" /> a) have lived<br />
+        <input type="radio" name="q3" value="b" /> b) has lived<br />
+        <input type="radio" name="q3" value="c" /> c) lived<br />
+        <input type="radio" name="q3" value="d" /> d) are living<br />
+      </div>
+      <button onclick="checkAnswer('q3', 'a')">정답 확인</button>
+      <p class="feedback" id="feedback3">정답입니다! (have lived)</p>
+      <p class="error" id="error3">틀렸습니다. 정답은 'have lived'입니다.</p>
+    </div>
+
+    <div class="question">
+      <p>4. He ___ at that company since 2010.</p>
+      <div class="options">
+        <input type="radio" name="q4" value="a" /> a) worked<br />
+        <input type="radio" name="q4" value="b" /> b) has worked<br />
+        <input type="radio" name="q4" value="c" /> c) have worked<br />
+        <input type="radio" name="q4" value="d" /> d) is worked<br />
+      </div>
+      <button onclick="checkAnswer('q4', 'b')">정답 확인</button>
+      <p class="feedback" id="feedback4">정답입니다! (has worked)</p>
+      <p class="error" id="error4">틀렸습니다. 정답은 'has worked'입니다.</p>
+    </div>
+
+    <div class="question">
+      <p>5. I ___ just ___ lunch.</p>
+      <div class="options">
+        <input type="radio" name="q5" value="a" /> a) have / eaten<br />
+        <input type="radio" name="q5" value="b" /> b) has / eaten<br />
+        <input type="radio" name="q5" value="c" /> c) ate / just<br />
+        <input type="radio" name="q5" value="d" /> d) am / eating<br />
+      </div>
+      <button onclick="checkAnswer('q5', 'a')">정답 확인</button>
+      <p class="feedback" id="feedback5">정답입니다! (have / eaten)</p>
+      <p class="error" id="error5">틀렸습니다. 정답은 'have / eaten'입니다.</p>
+    </div>
+
+    <div class="question">
+      <p>6. Haven’t they ___ the house yet?</p>
+      <div class="options">
+        <input type="radio" name="q6" value="a" /> a) left<br />
+        <input type="radio" name="q6" value="b" /> b) leave<br />
+        <input type="radio" name="q6" value="c" /> c) leaving<br />
+        <input type="radio" name="q6" value="d" /> d) leaved<br />
+      </div>
+      <button onclick="checkAnswer('q6', 'a')">정답 확인</button>
+      <p class="feedback" id="feedback6">정답입니다! (left)</p>
+      <p class="error" id="error6">틀렸습니다. 정답은 'left'입니다.</p>
+    </div>
+
+    <!-- "홈으로 돌아가기" 버튼 추가 -->
+    <a href="index.html"><button id="homeBtn">Home</button></a>
+
+    <script>
+      function checkAnswer(questionName, correctAnswer) {
+        const selected = document.querySelector(
+          `input[name="${questionName}"]:checked`
+        );
+        const feedback = document.getElementById(
+          `feedback${questionName.slice(1)}`
+        );
+        const error = document.getElementById(`error${questionName.slice(1)}`);
+
+        feedback.style.display = "none";
+        error.style.display = "none";
+
+        if (!selected) {
+          alert("선택지를 골라주세요!");
+          return;
+        }
+
+        if (selected.value === correctAnswer) {
+          feedback.style.display = "block";
+        } else {
+          error.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

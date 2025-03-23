@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Be Verb Quiz - LV2</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f4f4f9;
+        padding: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      .quiz-container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+      .question strong {
+        display: block;
+        margin-bottom: 10px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #homeBtn {
+        background-color: #6c757d;
+        margin-top: 20px;
+      }
+      #homeBtn:hover {
+        background-color: #5a6268;
+      }
+      .result {
+        margin-top: 20px;
+        text-align: left;
+      }
+      .options {
+        text-align: left;
+        padding-left: 20px;
+      }
+      .correct {
+        color: green;
+      }
+      .incorrect {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Be Verb Quiz - LV2</h1>
+    <p>
+      Select the correct sentence with the correct be verb placement. 맞는
+      문장을 고르시오.
+    </p>
+    <form id="quizForm">
+      <div class="question">
+        <strong>1. The book</strong><br />
+        <input type="radio" name="q1" value="1" /> The book is interesting.<br />
+        <input type="radio" name="q1" value="2" /> The book interesting is.<br />
+        <input type="radio" name="q1" value="3" /> Is the book interesting not?
+      </div>
+      <div class="question">
+        <strong>2. My parents</strong><br />
+        <input type="radio" name="q2" value="1" /> My parents supportive are.<br />
+        <input type="radio" name="q2" value="2" /> Are my parents supportive?<br />
+        <input type="radio" name="q2" value="3" /> My parents are supportive
+        not.
+      </div>
+      <div class="question">
+        <strong>3. Her ideas</strong><br />
+        <input type="radio" name="q3" value="1" /> Her ideas are not
+        innovative.<br />
+        <input type="radio" name="q3" value="2" /> Her ideas innovative are.<br />
+        <input type="radio" name="q3" value="3" /> Her ideas not are innovative.
+      </div>
+      <div class="question">
+        <strong>4. The weather</strong><br />
+        <input type="radio" name="q4" value="1" /> The weather is nice today.<br />
+        <input type="radio" name="q4" value="2" /> Is the weather nice not
+        today?<br />
+        <input type="radio" name="q4" value="3" /> The weather nice today is.
+      </div>
+      <div class="question">
+        <strong>5. This problem</strong><br />
+        <input type="radio" name="q5" value="1" /> Is this problem difficult?<br />
+        <input type="radio" name="q5" value="2" /> This problem difficult is.<br />
+        <input type="radio" name="q5" value="3" /> This problem is difficult
+        not.
+      </div>
+      <div class="question">
+        <strong>6. The students</strong><br />
+        <input type="radio" name="q6" value="1" /> Are the students ready?<br />
+        <input type="radio" name="q6" value="2" /> The students ready are.<br />
+        <input type="radio" name="q6" value="3" /> The students not are ready.
+      </div>
+      <div class="question">
+        <strong>7. My car</strong><br />
+        <input type="radio" name="q7" value="1" /> My car old is.<br />
+        <input type="radio" name="q7" value="2" /> Is my car old?<br />
+        <input type="radio" name="q7" value="3" /> My car is old not.
+      </div>
+      <div class="question">
+        <strong>8. My sister</strong><br />
+        <input type="radio" name="q8" value="1" /> Is my sister kind?<br />
+        <input type="radio" name="q8" value="2" /> My sister kind is.<br />
+        <input type="radio" name="q8" value="3" /> My sister not is kind.
+      </div>
+      <div class="question">
+        <strong>9. My best friend</strong><br />
+        <input type="radio" name="q9" value="1" /> Is my best friend funny?<br />
+        <input type="radio" name="q9" value="2" /> My best friend funny is.<br />
+        <input type="radio" name="q9" value="3" /> My best friend is funny not.
+      </div>
+      <div class="question">
+        <strong>10. Our dog</strong><br />
+        <input type="radio" name="q10" value="1" /> Our dog playful is.<br />
+        <input type="radio" name="q10" value="2" /> Our not dog is playful.<br />
+        <input type="radio" name="q10" value="3" /> Is our dog playful?
+      </div>
+      <div class="question">
+        <strong>11. My uncle</strong><br />
+        <input type="radio" name="q11" value="1" /> My uncle is tall not.<br />
+        <input type="radio" name="q11" value="2" /> Is my uncle tall?<br />
+        <input type="radio" name="q11" value="3" /> My uncle tall is.
+      </div>
+      <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+
+    <div class="result" id="result"></div>
+    <!-- "홈으로 돌아가기" 버튼 -->
+    <a href="index.html"><button id="homeBtn">홈으로 돌아가기</button></a>
+
+    <script>
+      const correctAnswers = {
+        q1: "1", // The book is interesting.
+        q2: "2", // Are my parents supportive?
+        q3: "1", // Her ideas are not innovative.
+        q4: "1", // The weather is nice today.
+        q5: "1", // Is this problem difficult?
+        q6: "1", // Are the students ready?
+        q7: "2", // Is my car old?
+        q8: "1", // Is my sister kind?
+        q9: "1", // Is my best friend funny?
+        q10: "3", // Is our dog playful?
+        q11: "2", // Is my uncle tall?
+      };
+
+      const correctSentences = {
+        q1: "The book is interesting.",
+        q2: "Are my parents supportive?",
+        q3: "Her ideas are not innovative.",
+        q4: "The weather is nice today.",
+        q5: "Is this problem difficult?",
+        q6: "Are the students ready?",
+        q7: "Is my car old?",
+        q8: "Is my sister kind?",
+        q9: "Is my best friend funny?",
+        q10: "Is our dog playful?",
+        q11: "Is my uncle tall?",
+      };
+
+      function checkAnswers() {
+        const form = document.getElementById("quizForm");
+        let score = 0;
+        let totalQuestions = Object.keys(correctAnswers).length;
+        let resultHTML = "<h3>결과</h3><ul>";
+
+        Object.keys(correctAnswers).forEach((question) => {
+          const selected = form.querySelector(
+            `input[name="${question}"]:checked`
+          );
+          const userAnswer = selected ? selected.value : null;
+          const correctAnswer = correctAnswers[question];
+          const correctSentence = correctSentences[question];
+
+          if (userAnswer === correctAnswer) {
+            resultHTML += `<li class="correct">문제 ${question.slice(
+              1
+            )}: 정답! "${correctSentence}"</li>`;
+            score++;
+          } else {
+            const userSentence = selected
+              ? selected.nextSibling.textContent.trim()
+              : "선택 안 함";
+            resultHTML += `<li class="incorrect">문제 ${question.slice(
+              1
+            )}: 오답. 당신의 선택: "${userSentence}". 정답: "${correctSentence}"</li>`;
+          }
+        });
+
+        resultHTML += `</ul><p>총 ${totalQuestions} 중 ${score} 점을 획득하셨습니다. (${Math.round(
+          (score / totalQuestions) * 100
+        )}%)</p>`;
+        document.getElementById("result").innerHTML = resultHTML;
+      }
+    </script>
+  </body>
+</html>
